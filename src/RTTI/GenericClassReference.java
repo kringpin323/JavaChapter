@@ -35,6 +35,9 @@ public class GenericClassReference {
 		else{
 			System.out.println("No");
 		}
+		
+		System.out.println("=====isInstance=======");
+		System.out.println(Integer.class.isInstance(abc)); // true£¬instanceof µÄÌæ´úÆ·
 	}
 	
 	public void WildClassReferences(){
