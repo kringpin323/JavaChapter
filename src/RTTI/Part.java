@@ -9,7 +9,7 @@ import java.util.Random;
  * 由于 Factory是函数式编程接口
  * 用Lamdba 改写这个程序
  * */
-未 // 错误，提升我，这个程序还有任务未完成
+// 错误，提升我，这个程序还有任务未完成
 public class Part {
 	// 在最基本的基类中创建工厂列表，基类生产超类，超类工厂 注册到基类中维护的工厂列表中
 	public static void main(String[] args) {
@@ -25,20 +25,22 @@ public class Part {
 	static List<Factory<? extends Part>> partFactories = new ArrayList<Factory<? extends Part>>();
 	static {
 		// 工厂列表 添加了 7 个工厂
-		partFactories.add(new FuelFilter.Factory());
-		partFactories.add(new AirFilter.Factory());
-		partFactories.add(new CabinFilter.Factory());
-		partFactories.add(new OilFilter.Factory());
 		
-		partFactories.add(new FanBelt.Factory());
-		partFactories.add(new GeneratorBelt.Factory());
+		
+		partFactories.add(()->new FuelFilter());
+		partFactories.add(()->new AirFilter());
+		partFactories.add(()->new CabinFilter());
+		partFactories.add(()->new OilFilter());
+		
+		partFactories.add(()->new FanBelt());
+		partFactories.add(()->new GeneratorBelt());
 		partFactories.add(new PowerSteeringBelt.Factory());
 	}
 	private static Random rand = new Random(47);
 	public static Part createRandom(){
-		int n = rand.nextInt(partFactories.size());
+//		int n = rand.nextInt(partFactories.size());
 		// 随机取出工厂并且使用工厂生成产品
-		return partFactories.get(n).create();
+		return partFactories.get(1).create();
 	}
 }
 
@@ -55,11 +57,11 @@ class FuelFilter extends Filter{
 }
 
 class AirFilter extends Filter{
-	public static class Factory implements RTTI.Factory<AirFilter>{
-		public AirFilter create(){
-			return new AirFilter();
-		}
-	}
+//	public static class Factory implements RTTI.Factory<AirFilter>{
+//		public AirFilter create(){
+//			return new AirFilter();
+//		}
+//	}
 }
 
 class CabinFilter extends Filter{
