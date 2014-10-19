@@ -26,7 +26,7 @@ public class Part {
 	static {
 		// 工厂列表 添加了 7 个工厂
 		
-		
+		// Eclipse 版本限制，都没有一个强大的IDE，失望
 		partFactories.add(()->new FuelFilter());
 		partFactories.add(()->new AirFilter());
 		partFactories.add(()->new CabinFilter());
